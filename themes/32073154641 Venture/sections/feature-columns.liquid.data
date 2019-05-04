@@ -1,0 +1,154 @@
+<h1>8888</h1>
+<section data-section-id="{{ section.id }}" data-section-type="index-section">
+  <div class="container">
+    <div class="space-50">
+      <div class="cate-section-gutter-wrapper">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <div class="cate-section-gutter cate-overlay">
+              <div class="category-text">
+                <h3>Accessories</h3>
+                <p>GET 30% OFF YOUR ORDER OF $100 OR MORE</p>
+                <div class="time time-v2" data-countdown="countdown" data-date="10-20-2016-10-20-30"></div>
+                <a href="home3.html#" title="" class="btn btn-dark btn-outline">VIEW ALL</a>
+              </div>
+
+              <div class="awe-media block">
+                <div class="awe-media-image">
+                  <a href="home3.html#" title="">
+                    <img src="{{ 'sample_collection-category-2.jpg' | asset_url}}" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="cate-section-gutter cate-overlay">
+              <div class="awe-media block">
+                <div class="awe-media-image">
+                  <a href="home3.html#" title="">
+                    <img src="{{ 'sample_collection-category-1.jpg' | asset_url}}" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="category-text">
+                <h3>Armchair</h3>
+                <p>GET 30% OFF YOUR ORDER OF $100 OR MORE</p>
+                <div class="time time-v2" data-countdown="countdown" data-date="10-20-2016-10-20-30"></div>
+                <a href="home3.html#" title="" class="btn btn-dark btn-outline">VIEW ALL</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="cate-section-gutter cate-overlay">
+              <div class="awe-media block">
+                <div class="awe-media-image">
+                  <a href="home3.html#" title="">
+                    <img src="{{ 'sample_collection-category-3.jpg' | asset_url}}" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="category-text">
+                <h3>DEcor</h3>
+                <p>GET 30% OFF YOUR ORDER OF $100 OR MORE</p>
+                <div class="time time-v2" data-countdown="countdown" data-date="10-20-2016-10-20-30"></div>
+                <a href="home3.html#" title="" class="btn btn-dark btn-outline">VIEW ALL</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Text columns with images",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Text columns with images"
+      },
+      {
+        "type": "select",
+        "id": "align_text",
+        "label": "Text alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Centered"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text_block",
+        "name": "Column",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "enable_image",
+            "label": "Show image",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Add a title or tagline"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text columns with images",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text_block"
+          },
+          {
+            "type": "text_block"
+          },
+          {
+            "type": "text_block"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

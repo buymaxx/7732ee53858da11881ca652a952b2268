@@ -1,0 +1,182 @@
+<section data-section-id="{{ section.id }}" data-section-type="slideshow-section">
+  {% if section.blocks.size > 0 %}
+    <div class="main-slider-wrapper {{ section.settings.slideshow_margin }}">
+      {% if section.settings.slideshow_width == "fixed" %}<div class="container">{% endif %}
+        <div data-autoplay="{{ section.settings.autoplay }}" data-autoplayspeed="{{ section.settings.autoplay_speed }}" class="main-slider owl-carousel owl-carousel-inset">
+        {% for block in section.blocks %}
+          <div class="main-slider-item">
+            <div class="main-slider-image">
+                {% if block.settings.image == blank %}
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'lifestyle-' | append: current | placeholder_svg_tag }}
+                {% else %}
+                    <img src="{{ block.settings.image.src | img_url: '1920x880', crop: 'center' }}" alt="{{ block.settings.alt | escape }}">
+                {% endif %}
+            </div>
+            <div class="main-slider-text">
+              <div class="fp-table height-70">
+                <div class="fp-table-cell {% if section.settings.text_position == "right" %}left{% endif %}">
+                  <div class="container">
+                      {% if section.settings.text_position == "right" %}
+                        {% if section.settings.slideshow_width == 'fullscreen' %}
+                          <div class="col-md-7 col-md-offset-6">
+                        {% else %}
+                          <div class="col-md-7 col-md-offset-5 col-sm-offset-5">
+                        {% endif %}
+                      {% endif %}
+                      {% if block.settings.title != blank %}
+                        <h2 class="color-home margin-bottom-10 {{ section.settings.text_size }}">{{ block.settings.title | escape }}</h2>
+                      {% endif %}
+                      {% if block.settings.subheading != blank %}
+                        <h5 class="color-black">{{ block.settings.subheading | escape }}</h5>
+                      {% endif %}
+                      {% if block.settings.button_text != blank %}
+                        <div class="button">
+                            <a href="{{ block.settings.link }}" class="btn btn-lg btn-black btn-outline">{{ block.settings.button_text | escape }}</a>
+                        </div>
+                      {% endif %}
+                      {% if section.settings.text_position == "right" %}
+                          </div>
+                      {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      {% if section.settings.slideshow_width == "fixed" %}</div>{% endif %}
+  </div>
+  {% else %}
+      {{ 'homepage.onboarding.no_content' | t }}
+  {% endif %}
+</section>
+<script type="text/javascript">$(function(){bindShopifyEvents('aweMainSlider')});</script>
+
+{% schema %}
+  {
+    "name": "Slideshow",
+    "max_blocks": 5,
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Slideshow title",
+        "default": "Slideshow "
+      },
+      {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Auto-rotate slides",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "autoplay_speed",
+        "label": "Change slides every",
+        "options": [
+          { "value": "4000", "label": "4 seconds" },
+          { "value": "5000", "label": "5 seconds" },
+          { "value": "6000", "label": "6 seconds" },
+          { "value": "7000", "label": "7 seconds" },
+          { "value": "8000", "label": "8 seconds" },
+          { "value": "9000", "label": "9 seconds" },
+          { "value": "10000", "label": "10 seconds" },
+          { "value": "11000", "label": "11 seconds" }
+        ],
+        "default": "7000"
+      },
+      {
+        "type": "select",
+        "id": "slideshow_margin",
+        "label": "Margin bottom",
+        "default": "",
+        "options": [
+          { "label": "0 px", "value": "" },
+          { "label": "10 px", "value": "space-10" },
+          { "label": "20 px", "value": "space-20" },
+          { "label": "30 px", "value": "space-30" },
+          { "label": "40 px", "value": "space-40" },
+          { "label": "50 px", "value": "space-50" },
+          { "label": "60 px", "value": "space-60" },
+          { "label": "70 px", "value": "space-70" },
+          { "label": "80 px", "value": "space-80" },
+          { "label": "90 px", "value": "space-90" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "slideshow_width",
+        "label": "Section width",
+        "default": "fullscreen",
+        "options": [
+          {"label": "Fullscreen", "value": "fullscreen"},
+          {"label": "Fixed", "value": "fixed"}
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_position",
+        "label": "Text position on slide",
+        "default": "center",
+        "options": [
+          { "label": "Center", "value": "center" },
+          { "label": "Right", "value": "right" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_size",
+        "label": "Text size",
+        "default": "size-55",
+        "options": [
+          { "label": "Small", "value": "extrasmall" },
+          { "label": "Medium", "value": "size-55" },
+          { "label": "Large", "value": "small" }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Slide"
+          },
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "View all products"
+          },
+          {
+            "type": "text",
+            "id": "alt",
+            "label": "Slide image alt text",
+            "default": "Slide alt"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text",
+            "default": "View collection"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Slide link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

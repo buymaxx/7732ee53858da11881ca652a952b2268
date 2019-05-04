@@ -1,0 +1,68 @@
+<section data-section-id="{{ section.id }}" data-section-type="featured-collections-section">
+    <div class="container">
+        <div class="space-50">
+            <div class="cate-section-gutter-wrapper">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="cate-section-gutter cate-overlay">
+                            <div class="category-text">
+                                <h3>Accessories</h3>
+                                <p>GET 30% OFF YOUR ORDER OF $100 OR MORE</p>
+                                <div class="time time-v2" data-countdown="countdown" data-date="10-20-2016-10-20-30"></div>
+                                <a href="home3.html#" title="" class="btn btn-dark btn-outline">VIEW ALL</a>
+                            </div>
+                            <div class="awe-media block">
+                                <div class="awe-media-image">
+                                    <a href="home3.html#" title="">
+                                        <img src="{{ 'sample_collection-category-2.jpg' | asset_url}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="cate-section-gutter cate-overlay">
+                            <div class="awe-media block">
+                                <div class="awe-media-image">
+                                    <a href="home3.html#" title="">
+                                        <img src="{{ 'sample_collection-category-1.jpg' | asset_url}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="category-text">
+                                <h3>Armchair</h3>
+                                <p>GET 30% OFF YOUR ORDER OF $100 OR MORE</p>
+                                <div class="time time-v2" data-countdown="countdown" data-date="10-20-2016-10-20-30"></div>
+                                <a href="home3.html#" title="" class="btn btn-dark btn-outline">VIEW ALL</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="cate-section-gutter cate-overlay">
+                            <div class="awe-media block">
+                                <div class="awe-media-image">
+                                    <a href="home3.html#" title="">
+                                        <img src="{{ 'sample_collection-category-3.jpg' | asset_url}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="category-text">
+                                <h3>DEcor</h3>
+                                <p>GET 30% OFF YOUR ORDER OF $100 OR MORE</p>
+                                <div class="time time-v2" data-countdown="countdown" data-date="10-20-2016-10-20-30"></div>
+                                <a href="home3.html#" title="" class="btn btn-dark btn-outline">VIEW ALL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Featured collections",
+        "class": "index-section"
+    }
+{% endschema %}
